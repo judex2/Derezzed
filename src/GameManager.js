@@ -16,8 +16,8 @@ export class GameManager {
     this.npc = { x: 0, y: 30, dir: { x: 0, y: -1 }, dead: false };
     this.trails = [];
     
-    this.playerSpeed = 0.5; // Grid units per frame
-    this.npcSpeed = 0.5 * 0.95; // 95% of player speed
+    this.playerSpeed = 0.35; // Grid units per frame
+    this.npcSpeed = 0.35 * 0.95; // 95% of player speed
     this.turnLock = false; // Tactical One-Shot Lock
 
     this.countdownValue = 3;

@@ -68,11 +68,11 @@ export class HandTracker {
     if (this.results && this.results.landmarks) {
       for (const landmarks of this.results.landmarks) {
         this.drawingUtils.drawConnectors(landmarks, HandLandmarker.HAND_CONNECTIONS, {
-          color: "#00ffff",
+          color: "#ff8000",
           lineWidth: 2
         });
         this.drawingUtils.drawLandmarks(landmarks, {
-          color: "#ff00ff",
+          color: "#ff8000",
           lineWidth: 1,
           radius: 2
         });
@@ -80,16 +80,32 @@ export class HandTracker {
 
       // Draw digital tether for Handlebars
       if (this.activeControlScheme === 'HANDLEBARS' && this.results.landmarks.length >= 2) {
-        const h1 = this.results.landmarks[0][0]; // Wrist 1
-        const h2 = this.results.landmarks[1][0]; // Wrist 2
+        const h1 = this.results.landmarks[0]; 
+        const h2 = this.results.landmarks[1];
         
-        this.ctx.beginPath();
-        this.ctx.moveTo(h1.x * this.canvas.width, h1.y * this.canvas.height);
-        this.ctx.lineTo(h2.x * this.canvas.width, h2.y * this.canvas.height);
-        this.ctx.strokeStyle = "#ff00ff";
+        const orange = "#ff8000";
+        this.ctx.strokeStyle = orange;
         this.ctx.lineWidth = 3;
         this.ctx.setLineDash([15, 10]);
+
+        // 1. Bottom Tether (Wrists)
+        this.ctx.beginPath();
+        this.ctx.moveTo(h1[0].x * this.canvas.width, h1[0].y * this.canvas.height);
+        this.ctx.lineTo(h2[0].x * this.canvas.width, h2[0].y * this.canvas.height);
         this.ctx.stroke();
+
+        // 2. Middle Tether (MCP Joints / Knuckles - Index 9 is Middle MCP)
+        this.ctx.beginPath();
+        this.ctx.moveTo(h1[9].x * this.canvas.width, h1[9].y * this.canvas.height);
+        this.ctx.lineTo(h2[9].x * this.canvas.width, h2[9].y * this.canvas.height);
+        this.ctx.stroke();
+
+        // 3. Top Tether (Fingertips - Index 12 is Middle Tip)
+        this.ctx.beginPath();
+        this.ctx.moveTo(h1[12].x * this.canvas.width, h1[12].y * this.canvas.height);
+        this.ctx.lineTo(h2[12].x * this.canvas.width, h2[12].y * this.canvas.height);
+        this.ctx.stroke();
+
         this.ctx.setLineDash([]); // Reset dash
       }
     }
