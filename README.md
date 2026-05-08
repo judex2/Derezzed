@@ -2,7 +2,8 @@
 
 DEREZZED is an immersive, hand-gesture controlled arcade survival game inspired by brutalist aesthetics and classic light-cycle arenas. Players take control of a high-speed neon cycle using their physical movements—specifically by initiating gameplay through a "Fist Pull" gesture and steering with the "Lazy Gun" hand pose via their webcam. Navigate the deadly, perfectly crisp grid, outmaneuver an aggressive AI enemy, and force them into your solid neon trail until the enemy is entirely derezzed. 
 
-![Demo GIF](demo.gif)
+<img width="500" height="279" alt="derezzed startup gif" src="https://github.com/user-attachments/assets/1fd99384-f12f-40d5-8def-a2c486c5108e" />
+
 
 ## Features
 - **Gesture Control System:** Play completely hands-free using webcam-tracked hand gestures powered by MediaPipe.
@@ -25,6 +26,8 @@ To run DEREZZED locally:
    npm run dev
    ```
 5. Open the provided `localhost` URL in your web browser and allow camera access to start playing!
+
+6. OR, use this link to play the latest version! https://derezzed.vercel.app/
 
 ---
 *Built with Gemini 3 Flash*
