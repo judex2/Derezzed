@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEREZZED</title>
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+  <body>
+    <div id="game-container">
+      <!-- WebGL canvas will be injected here by Three.js -->
+    </div>
+    
+    <!-- UI Overlay -->
+    <div id="ui-layer">
+      <div id="status-text">INITIALIZING...</div>
+    </div>
+
+    <!-- Picture-in-Picture Camera -->
+    <div id="pip-container">
+      <video id="webcam" autoplay playsinline></video>
+      <canvas id="pip-canvas"></canvas>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
